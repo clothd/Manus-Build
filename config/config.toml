@@ -1,8 +1,8 @@
 # Global LLM configuration
 [llm]
-model = "meta-llama/Llama-3.3-Instruct-70B"
-base_url = "https://openai.inference.de-txl.ionos.com/v1"
-api_key = "659133b9-4def-4554-9d15-213a69a607be"
+model = "google/gemini-2.0-flash-lite-preview-02-05:free"
+base_url = "https://openrouter.ai/api/v1"
+api_key = "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"
 max_tokens = 4096
 temperature = 0.0
 
