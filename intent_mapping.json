@@ -1,0 +1,54 @@
+{
+  "intents": [
+    {
+      "intent": "get historical data for a stock",
+      "description": "Retrieves historical price data for a specified stock symbol.",
+      "quantconnect_code": "self.symbol = self.AddEquity(\"{{symbol}}\", Resolution.Daily).Symbol\nhistory = self.History(self.symbol, self.Time, 10, Resolution.Daily)\nclose_prices = history.loc[self.symbol]['close']"
+    },
+    {
+      "intent": "calculate simple moving average",
+      "description": "Calculates the simple moving average of a series of prices.",
+      "quantconnect_code": "sma = self.SMA(self.symbol, 20, Resolution.Daily)"
+    },
+    {
+      "intent": "place a buy order",
+      "description": "Places a buy order for a specified quantity of shares.",
+      "quantconnect_code": "self.SetHoldings(self.symbol, {{percentage}})"
+    },
+    {
+      "intent": "place a sell order",
+      "description": "Places a sell order for a specified quantity of shares.",
+      "quantconnect_code": "self.SetHoldings(self.symbol, -{{percentage}})"
+    },
+    {
+      "intent": "if price crosses moving average",
+      "description": "Conditional statement to check if the price crosses the moving average.",
+      "quantconnect_code": "if self.Securities[self.symbol].Price > sma.Current.Value:\n    # Buy logic here\n    pass"
+    },
+    {
+      "intent": "calculate Relative Strength Index (RSI)",
+      "description": "Calculates the Relative Strength Index (RSI) for a specified period.",
+      "quantconnect_code": "rsi = self.RSI(self.symbol, {{period}}, Resolution.Daily)"
+    },
+    {
+      "intent": "calculate Moving Average Convergence Divergence (MACD)",
+      "description": "Calculates the MACD, signal line, and histogram for a specified period.",
+      "quantconnect_code": "macd = self.MACD(self.symbol, 12, 26, 9, Resolution.Daily)"
+    },
+    {
+      "intent": "set stop loss order",
+      "description": "Sets a stop-loss order for a specified percentage below the current price.",
+      "quantconnect_code": "self.StopLoss(self.symbol, {{percentage}})"
+    },
+    {
+      "intent": "set take profit order",
+      "description": "Sets a take profit order for a specified percentage above the current price.",
+      "quantconnect_code": "self.TakeProfit(self.symbol, {{percentage}})"
+    },
+    {
+      "intent": "calculate Exponential Moving Average (EMA)",
+      "description": "Calculates the Exponential Moving Average (EMA) for a specified period.",
+      "quantconnect_code": "ema = self.EMA(self.symbol, {{period}}, Resolution.Daily)"
+    }
+  ]
+}

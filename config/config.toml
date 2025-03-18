@@ -2,7 +2,7 @@
 [llm]
 model = "google/gemini-2.0-flash-lite-preview-02-05:free"
 base_url = "https://openrouter.ai/api/v1"
-api_key = "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"
+api_key = "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"
 max_tokens = 4096
 temperature = 0.0
 
